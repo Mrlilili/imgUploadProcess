@@ -1,0 +1,29 @@
+{
+  "name": "imgUpload",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "cookie-parser": "^1.4.1",
+    "body-parser": "^1.15.0",
+    "multer": "^1.1.0",
+    "express": "^4.13.4",
+    "wiredep": "^3.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mrlilili/imgUploadProcess.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mrlilili/imgUploadProcess/issues"
+  },
+  "homepage": "https://github.com/Mrlilili/imgUploadProcess#readme"
+}

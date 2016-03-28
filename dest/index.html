@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <title>Title</title>
+    <!-- bower:js -->
+    <script src="jquery/dist/jquery.js"></script>
+    <script src="img-touch-canvas/img-touch-canvas.js"></script>
+    <script src="lrz/dist/lrz.bundle.js"></script>
+    <!-- endbower -->
+</head>
+<body>
+<ul>
+    <li><input type="file" class="openImgBtn"></li>
+    <li><input type="button" class="uploadBtn" value="上传"></li>
+</ul>
+
+<canvas class="myCanvas" width="500px" height="500px"></canvas>
+<script src="js/index.js"></script>
+<script>
+    ImgCompress('openImgBtn', 'uploadBtn', 'myCanvas');
+</script>
+</body>
+</html>
