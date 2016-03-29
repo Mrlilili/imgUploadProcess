@@ -1,9 +1,9 @@
 /**
- *
- * @param openImgBtn
- * @param uploadBtn
- * @param canvas
- * @returns {ImgCompress}
+ * 图片上传压缩剪裁处理
+ * @param openImgBtn 选择文件的按钮节点Class
+ * @param uploadBtn  上传按钮的节点Class
+ * @param canvas     canvas节点的class
+ * @returns {ImgCompress} void
  * @constructor
  */
 var globalImgCompress;
