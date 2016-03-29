@@ -22,6 +22,7 @@ app.get('/', function (req, res) {
 
 app.post('/process_post', urlencodedParser, function (req, res) {
     var imgBase64 = req.body.imgCode;
+    console.log(imgBase64);
     var base64Data = imgBase64.replace("data:image/jpeg;base64,", "");
     require("fs").writeFile("out.png", base64Data, 'base64', function (err) {
         console.log(err);

@@ -19,11 +19,13 @@ function ImgCompress(openImgBtn, uploadBtn, canvas) {
 }
 
 ImgCompress.prototype = {
+    //事件绑定
     intEvent: function () {
         var self = this;
         $(this.openImgBtn).change(self.showImg);
         $(this.uploadBtn).on('click', self.uploadImg);
     },
+    //得到上传前本地预览的地址
     showImg: function () {
         var $file = $(this);
         var fileObj = $file[0];
@@ -35,11 +37,13 @@ ImgCompress.prototype = {
             desktop: true
         });
     },
+    //获取图片base64Code
     uploadImg: function () {
         var imgBaseCode = globalImgCompress.canvasDom[0].toDataURL();
         globalImgCompress.uploadEvent(imgBaseCode);
 
     },
+    //图片进行压缩并上传
     uploadEvent: function (imgCode) {
         lrz(imgCode, {quality: 0.7}).then(function (res) {
             $.post('./process_post', {imgCode: res.base64}, function (res) {
