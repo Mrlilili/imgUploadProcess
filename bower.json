@@ -1,0 +1,23 @@
+{
+  "name": "imgUpload",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "Aaron <15360085185>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Mrlilili/imgUploadProcess",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lrz": "git@github.com:think2011/localResizeIMG.git#^4.9.35",
+    "img-touch-canvas": "git@github.com:phoenixwong/img-touch-canvas.git",
+    "jquery": "^2.2.1"
+  }
+}
