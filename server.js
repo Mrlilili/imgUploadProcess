@@ -7,6 +7,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
+app.set('port', process.env.PORT || 3000);
+
 /*创建 application/x-www-form-urlencoded 编码解析*/
 var urlencodedParser = bodyParser.urlencoded({extended: false})
 
@@ -14,6 +16,7 @@ app.use(express.static('bower_components'));
 app.use(express.static('dest/'));
 
 app.get('/', function (req, res) {
+    res.send('132');
     res.sendFile(__dirname + "/" + "./dest/index.html");
 })
 
@@ -26,11 +29,6 @@ app.post('/process_post', urlencodedParser, function (req, res) {
     });
 })
 
-var server = app.listen(8081, function () {
-
-    var host = server.address().address
-    var port = server.address().port
-
-    console.log("应用实例，访问地址为 http://%s:%s", host, port)
-
-})
+app.listen(app.get('port'), function () {
+    console.log('Express server listening on port ' + app.get('port'));
+});
