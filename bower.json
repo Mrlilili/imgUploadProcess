@@ -10,10 +10,10 @@
   "moduleType": [],
   "ignore": [
     "**/.*",
-    "node_modules1",
-    "bower_components1",
-    "test1",
-    "tests1"
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
   ],
   "dependencies": {
     "lrz": "git@github.com:think2011/localResizeIMG.git#^4.9.35",
