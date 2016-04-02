@@ -6,44 +6,40 @@
  * @returns {ImgCompress} void
  * @constructor
  */
-var globalImgCompress;
 function ImgCompress(openImgBtn, uploadBtn, canvas) {
-    if (!(this instanceof ImgCompress)) {
-        return new ImgCompress(openImgBtn, uploadBtn, canvas);
-    }
-    globalImgCompress = this;
     this.openImgBtn = $('.' + openImgBtn);
     this.uploadBtn = $('.' + uploadBtn);
     this.canvasDom = $('.' + canvas);
-    this.intEvent();
+    this.intEvent();//启动任务
 }
 
 ImgCompress.prototype = {
-    //事件绑定
-    intEvent: function () {
+    intEvent: function () {//事件绑定操作
         var self = this;
-        $(this.openImgBtn).change(self.showImg);
-        $(this.uploadBtn).on('click', self.uploadImg);
+        $(this.openImgBtn).change(function () {//当选择文件按钮发生改变时调用showImg
+            self.showImg();
+        });
+        $(this.uploadBtn).on('click', function () {//上传按钮事件绑定
+            self.uploadImg();
+        });
     },
-    //得到上传前本地预览的地址
-    showImg: function () {
-        var $file = $(this);
-        var fileObj = $file[0];
-        var windowURL = window.URL || window.webkitURL;
-        var dataURL = windowURL.createObjectURL(fileObj.files[0]);
-        new ImgTouchCanvas({
-            canvas: globalImgCompress.canvasDom[0],
+    showImg: function () {//上传前本地预览图片
+        var self = this;
+        var dataURL = URL.createObjectURL(self.openImgBtn.prop('files')[0]);//得到本地预览的URL
+        new ImgTouchCanvas({//将图片显示在支持手势canvas中
+            canvas: self.canvasDom[0],
             path: dataURL,
             desktop: true
         });
     },
     //获取图片base64Code
     uploadImg: function () {
-        var imgBaseCode = globalImgCompress.canvasDom[0].toDataURL();
-        globalImgCompress.uploadEvent(imgBaseCode);
+        var self = this;
+        var imgBaseCode = self.canvasDom[0].toDataURL();
+        self.uploadEvent(imgBaseCode);
 
     },
-    //图片进行压缩并上传
+    //图片压缩并上传动作
     uploadEvent: function (imgCode) {
         lrz(imgCode, {quality: 0.7}).then(function (res) {
             $.post('./process_post', {imgCode: res.base64}, function (res) {
